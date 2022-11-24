@@ -33,6 +33,7 @@ const backgroundLayer5 = new Image();
 backgroundLayer5.src = image5;
 
 let gameSpeed = 2;
+// let gameFrame = 0;
 
 class Layer {
   x = 0;
@@ -53,6 +54,10 @@ class Layer {
     }
 
     this.x = Math.floor(this.x - this.speed);
+
+    // This single line replace the condition above
+    // But it generates jumps in the background
+    // this.x = (gameFrame * this.speed) % this.width;
   }
 
   draw() {
@@ -83,6 +88,7 @@ function animate() {
     item.draw();
   });
 
+  // gameFrame--;
   requestAnimationFrame(animate);
 }
 
